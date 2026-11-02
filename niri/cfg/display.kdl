@@ -1,0 +1,27 @@
+// ────────────── Output Configuration ──────────────
+// You can run `niri msg outputs` to get the correct name for your displays.
+// You will have to remove "/-" and edit it before it takes effect.
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+
+output "PNP(AOC) Q27G3XMN 1APQ7JA003740" {
+	scale 1.0
+	transform "normal"
+	focus-at-startup
+	mode "2560x1440@119.998"
+	position x=-2560 y=0
+}
+
+output "eDP-1" {
+	scale 1.1
+	transform "normal"
+	focus-at-startup
+	position x=0 y=0
+	mode "2560x1600@240.024"
+}
+
+// Catch all for monitors
+output "" {
+    scale 1.0
+    transform "normal"
+    focus-at-startup
+}
