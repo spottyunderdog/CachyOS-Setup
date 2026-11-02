@@ -60,6 +60,8 @@ version=$(getLatestReleaseVersion https://github.com/SubtitleEdit/subtitleedit/r
 wget https://github.com/SubtitleEdit/subtitleedit/releases/download/v$version/SubtitleEdit-linux-x64.flatpak 
 flatpak install SubtitleEdit-linux-x64.flatpak --system --or-update --noninteractive
 
+echo "Installing Kara Via the AUR"
+paru -S plasma6-applets-kara-git
 
 echo "Enabling needed system service for Podman and thermald"
 sudo systemctl enable --now thermald.service
@@ -79,3 +81,14 @@ systemctl enable --now libvirtd.socket
 sudo virsh net-autostart default
 # And to enable the entire VM network to have unfettered transit: (You should consider if you need more granular firewall rules based on your use case and security posture)
 sudo ufw route allow from 192.168.122.0/24
+
+echo "Linking Dotfiles"
+dir=$(pwd)
+
+ln -s "$dir/xdg-terminals.list" "$HOME/.config/xdg-terminals.list"
+for curDir in $dir/*; do
+	if [[ -d "$curDir" && "$curDir" != ".git" ]]; then
+		dirName=${curDir#"$dir"/}
+		ln -s "$curDir" "$HOME/.config/$dirName"
+	fi
+done
