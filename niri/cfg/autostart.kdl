@@ -1,7 +1,8 @@
 // ────────────── Startup Applications ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
-    spawn-sh-at-startup "exec /usr/lib/pam_kwallet_init"
+    // Calls a Script in bin that makes sure that the kwall
+    // Gets unlocked
     //Starts Noctalia
     spawn-at-startup "noctalia"
-    
+    spawn-sh-at-startup "exec /usr/lib/pam_kwallet_init"
