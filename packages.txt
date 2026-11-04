@@ -68,3 +68,5 @@ paru
 chaotic-aur/millennium
 winboat
 protonplus
+ksshaskpass
+nvidia-container-toolkit
